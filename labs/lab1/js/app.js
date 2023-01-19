@@ -1,7 +1,7 @@
 // ALGORITHM
 // I want to experiment with repeating shapes using math instead of repeating lines of code.
 // For every pixel of height on my canvas, I'll create a couple shapes with variable height, width, and/or diameter.
-// I akso want to use the same math to create a minor gradient of colors. 
+// I also want to use the same math to create a minor gradient of colors. 
 
 // used for setup code
 function setup() {
