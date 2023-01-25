@@ -14,3 +14,24 @@ than the halfway point. If it is, the fill() will be red. If not, blue.
 Then I just draw the circle(). 
 
 */
+let canvasX = 400;
+let canvasY = 300;
+
+function setup() {
+    createCanvas(canvasX, canvasY);
+}
+
+function draw() {
+    background('rgba(19, 19, 19, 0.1)');
+
+    if(mouseX < (canvasX / 2))
+    {
+        fill(255, 0, 0);
+    }
+    else
+    {
+        fill(0, 0, 255);
+    }
+
+    circle(mouseX, mouseY, 40);
+}

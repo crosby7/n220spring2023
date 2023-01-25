@@ -11,3 +11,30 @@ and I'll reduce diameter to 1 before drawing a circle and incrementing again. Th
 a circle is still drawn every frame (as the prompt asks), even on reset frames. 
 
 */
+
+var diameter;
+
+function setup() {
+    createCanvas(400, 300);
+    background(200);
+    diameter = 1;
+}
+
+function draw() {
+
+    // In testing, I saw that I was repeating the circle and increment in my if and else statements
+    // This meant I could simplify down to a single if, which would check
+    // if the diameter was greater than 200. If so, run the reset, but outside of the 
+    // conditional is where the drawing actually happens
+    if(diameter > 200)
+    {
+        background(200);
+         diameter = 1;
+        
+    }
+
+    fill(0, 200, 100);
+    circle(200, 150, diameter);
+    diameter++;
+    
+}
