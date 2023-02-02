@@ -6,3 +6,26 @@ Then, I'll create a function drawCar that accepts someCar as an argument. Then I
 
 */
 
+const someCar = {x: 100, y: 100, rectWidth: 100, rectHeight: 80, borderR: 15, circR: 30, colorRect: [50, 100, 200], colorWheels: [0,0,0]};
+
+console.log(someCar);
+
+
+function setup() {
+    createCanvas(1000, 800);
+    background(200);
+    drawCar(someCar);
+}
+
+
+function drawCar(someCar)
+{
+    fill(someCar.colorRect);
+
+    rect(someCar.x - (someCar.rectWidth / 2), someCar.y - (someCar.rectHeight / 2), someCar.rectWidth, someCar.rectHeight, someCar.borderR);
+
+    fill(someCar.colorWheels);
+
+    circle(someCar.x + (someCar.rectWidth / 4), someCar.y + (someCar.rectHeight / 2), someCar.circR);
+    circle(someCar.x - (someCar.rectWidth / 4), someCar.y + (someCar.rectHeight / 2), someCar.circR);
+}
