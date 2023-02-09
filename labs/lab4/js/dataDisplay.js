@@ -14,18 +14,24 @@ console.log(someCar);
 function setup() {
     createCanvas(1000, 800);
     background(200);
+
+    // Create a function to only draw the car once
     drawCar(someCar);
 }
 
 
 function drawCar(someCar)
 {
+    // Set fill color to car body color
     fill(someCar.colorRect);
 
+    // Create the car body
     rect(someCar.x - (someCar.rectWidth / 2), someCar.y - (someCar.rectHeight / 2), someCar.rectWidth, someCar.rectHeight, someCar.borderR);
 
+    // Set wheel color
     fill(someCar.colorWheels);
 
+    // Create the wheels
     circle(someCar.x + (someCar.rectWidth / 4), someCar.y + (someCar.rectHeight / 2), someCar.circR);
     circle(someCar.x - (someCar.rectWidth / 4), someCar.y + (someCar.rectHeight / 2), someCar.circR);
 }
