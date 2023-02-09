@@ -1,22 +1,17 @@
-// Declare object bike
-const bicycle = {age: 0, wear: 0, isDestroyed: 0};
-
-function bicycleAging(bicycle) {
-  // Increment age of bike
-  bicycle.age++;
-  // If age reaches 5 (or more)
-  if(bicycle.age >= 5)
+// This function is called by buttons in the document
+function checkResponse(time)
+{
+  // Find the "response" h1 tag
+  let answerText = document.getElementById("response");
+  // If the pressed button says Afternoon
+  if(time === 'Afternoon')
   {
-    // Set wear to 100, set isDestroyed to 1 (true), display to console
-    bicycle.wear = 100;
-    bicycle.isDestroyed = 1;
-    console.log(bicycle);
+    // Display proper text to h1
+    answerText.innerHTML = "That is correct!!!";
+  }
+  else
+  {
+    // if not right, display guess again to h1
+    answerText.innerHTML = "Guess Again...";
   }
 }
-
-
-bicycleAging(bicycle);
-bicycleAging(bicycle);
-bicycleAging(bicycle);
-bicycleAging(bicycle);
-bicycleAging(bicycle);
