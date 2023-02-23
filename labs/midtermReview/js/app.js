@@ -17,6 +17,38 @@ of the clicked div to the navCollection
 
 */
 
+// Find and retain the div to hold clicked div text
+let navCollectionDiv = document.getElementById('navCollection');
+
+
+// Called in HTML in onclick
+function uiNavHighlight(divToHighlight)
+{
+    // Get an HTMLcollection of the other divs
+    uiNavDivs = document.getElementsByClassName('uiNav');
+
+    // For each element in uiNavDivs
+    for (i = 0; i < uiNavDivs.length; i++)
+    {
+        // Reset the styling
+        let indexedElement = uiNavDivs.item(i);
+        indexedElement.style.backgroundColor = "#FFFFFF";
+        indexedElement.style.fontWeight = "normal";
+        indexedElement.style.color = "#000000";
+    }
+
+
+    // After the reset, style the clicked div
+    divToHighlight.style.backgroundColor = "#AA11FF";
+    divToHighlight.style.fontWeight = "bold";
+    divToHighlight.style.color = "#FFFFFF";
+
+    // Add the innerHTML of clicked div to navCollectionDiv
+    navCollectionDiv.innerHTML += " " + divToHighlight.innerHTML;
+}
+
+
+
 /* Rock Paper Scissors (Guard)
 
 First, I'll create a score div. This will have "Player Score: 0" by default
@@ -40,3 +72,92 @@ If the player made an RPS move, then a series of if/elseif statements will check
 Then, after the RPS logic, I'll display to a textDiv the result of the round, and update scoreDiv. 
 
 */
+
+// Find and retain scoreDiv
+let scoreDiv = document.getElementById("scoreDiv");
+
+// Initialize a score count variable
+let score = 0;
+
+// Find and retain the result text
+let resultDisplay = document.getElementById("resultDisplay");
+
+// Called in onclick for the player input buttons
+function rockPaperScissorsGuard(playerChoice, playerString)
+{
+    // if the player chose guard
+    if (playerChoice === 3)
+    {
+        // Lose half a point and update the text boxes
+        score -= 0.5;
+        scoreDiv.innerHTML = "Score: " + score;
+        resultDisplay.innerHTML = "You chose: " + playerString + "! Good block!";
+    }
+    // If the player made an RPS move
+    else
+    {
+        // Randomly generate the computer's move (0 = rock, 1 = paper, 2 = scissors)
+        let computerChoice = Math.floor(Math.random() * 3);
+
+        // If the computer chose rock
+        if (computerChoice === 0)
+        {
+            // and if the player chose paper
+            if (playerChoice === 1)
+            {
+                // Add a point and update text
+                score++;
+                scoreDiv.innerHTML = "Score: " + score;
+                resultDisplay.innerHTML = "You chose: " + playerString + " and your opponent chose rock! You Win!";
+            }
+            // or if the player chose scissors
+            else if (playerChoice === 2)
+            {
+                // Lose a point and update text
+                score--;
+                scoreDiv.innerHTML = "Score: " + score;
+                resultDisplay.innerHTML = "You chose: " + playerString + " and your opponent chose rock! Better luck next time!";
+            }
+        }
+        // or if the computer chose paper
+        else if (computerChoice === 1)
+        {
+            // and the player chose scissors
+            if (playerChoice === 2)
+            {
+                // Gain a point and update text
+                score++;
+                scoreDiv.innerHTML = "Score: " + score;
+                resultDisplay.innerHTML = "You chose: " + playerString + " and your opponent chose paper! You Win!";
+            }
+            // or if the player chose rock
+            else if (playerChoice === 0)
+            {
+                // Lose a point and update text
+                score--;
+                scoreDiv.innerHTML = "Score: " + score;
+                resultDisplay.innerHTML = "You chose: " + playerString + " and your opponent chose paper! Better luck next time!";
+            }
+        }
+        // or if the computer chose scissors
+        else if (computerChoice === 2)
+        {
+            // and the player chose rock
+            if (playerChoice === 0)
+            {
+                // Gain a point and update text
+                score++;
+                scoreDiv.innerHTML = "Score: " + score;
+                resultDisplay.innerHTML = "You chose: " + playerString + " and your opponent chose scissors! You Win!";
+            }
+            // or if the player chose paper
+            else if (playerChoice === 1)
+            {
+                // Lose a point and update text
+                score--;
+                scoreDiv.innerHTML = "Score: " + score;
+                resultDisplay.innerHTML = "You chose: " + playerString + " and your opponent chose scissors! Better luck next time!";
+            }
+        }
+    }
+}
