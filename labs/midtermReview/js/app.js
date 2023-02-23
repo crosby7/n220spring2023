@@ -19,8 +19,24 @@ of the clicked div to the navCollection
 
 /* Rock Paper Scissors (Guard)
 
+First, I'll create a score div. This will have "Player Score: 0" by default
 
+Then, I'll create 4 buttons that allow the player to pick between rock, paper, scissors, and guard
 
+When these buttons are clicked, the logic for the game is run -- I'll create an onclick function that accepts a string argument (the player's move)
 
+In JS, a global score variable will be created, initialized to zero. 
+I'll also globally identify the scoreDiv. 
+
+In the function, a random move will be selected by the computer (rock, paper, or scissors -- 0, 1, or 2). 
+
+If the player chose guard, I'll simply subtract 0.5 from score
+and update scoreDiv's innerHTML accordingly.
+
+If the player made an RPS move, then a series of if/elseif statements will check if the player won. 
+    For example:
+        If the computer chose rock, and if the player chose paper, the player wins (score++). If the player instead chose scissors, the computer wins (score--). Since ties result in no change in score, I'll simply not check for them. 
+
+Then, after the RPS logic, I'll display to a textDiv the result of the round, and update scoreDiv. 
 
 */
