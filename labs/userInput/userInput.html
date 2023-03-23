@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input {
+            display: block;
+            margin: 10px auto;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+        }
+
+        div {
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+    </style>
     <title>User Input</title>
 </head>
 <body>
+    <input type="text" name="" id="greeterInput" placeholder="Enter your name...">
+    <button onclick="greeterFunction()">Submit</button>
+
+    <input type="number" name="" id="tipCalcInput" placeholder="Enter your bill subtotal:">
+    <button onclick="tipCalc()">Calculate</button>
+
+    <input type="text" name="" id="usernameInput" placeholder="Username:">
+    <input type="text" name="" id="passwordInput" placeholder="Password:">
+    <button onclick="userCheck()">Login</button>
+    <div id="userCheck"> </div>
     <script src="js/userInput.js"></script>
 </body>
 </html>
