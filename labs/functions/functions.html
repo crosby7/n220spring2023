@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            background-color: #999;
+            width: 300px;
+            height: 30px;
+            margin: 10px 0 10px 0;
+            text-align: center;
+        }
+    </style>
     <title>Functions Exercises</title>
 </head>
 <body>
+    <h1>Is Divisible By Seven?</h1>
+    <input type="number"  id="divisibleInput">
+    <button onclick="checkNumber()">Divide</button>
+    <div id="divisibleDiv"></div>
+    <h1>Make Random</h1>
+    <button class="randomButton" onclick="startRandomizing()">Make a Random Number</button>
+    <div id="randomDiv"></div>
+    <h1>Show Info</h1>
+    <button class="infoButton" onclick="showInfo(0)">Home</button>
+    <button class="infoButton" onclick="showInfo(1)">About</button>
+    <button class="infoButton" onclick="showInfo(2)">Projects</button>
+    <div id="infoDiv"></div>
     <script src="js/functions.js"></script>
 </body>
 </html>

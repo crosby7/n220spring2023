@@ -27,3 +27,73 @@ In JS, I'll create an array of strings of the same name ["home", "about", "proje
 Then, the function showInfo(index) will update the div with the string indexed by the given numeric parameter.
 
 */
+
+// REFERENCES TO HTML
+// =--= 
+// IS DIVISIBLE: Get references
+let divisibleInput = document.getElementById("divisibleInput");
+let divisibleDiv = document.getElementById("divisibleDiv");
+
+// MAKE RANDOM: Get reference
+let randomDiv = document.getElementById("randomDiv");
+
+// SHOW INFO: Define string array and get reference
+let strings = ["Home", "About", "Projects"];
+let infoDiv = document.getElementById("infoDiv");
+// For fun -- made innerHTML preset, on first click, placeholder will be removed and from then on, info is appended, not replaced
+let infoHasBeenAdded = false;
+infoDiv.innerHTML = "Empty -- Press a button to add info";
+
+// FUNCTIONS
+// =--=
+// IS DIVISIBLE: onclick function
+function checkNumber() {
+    let givenNumber = Number(divisibleInput.value);
+    divisibleInput.value = "";
+
+    if (isDivisible(givenNumber))
+    {
+        divisibleDiv.innerHTML = `${givenNumber} is divisible by seven!!`;
+    }
+    else
+    {
+        divisibleDiv.innerHTML = `${givenNumber} is NOT divisible :(`;
+    }
+}
+
+// IS DIVISIBLE: Return function the checks the given number is actually divisible
+function isDivisible(givenNumber) {
+    if (givenNumber % 7 === 0)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// MAKE RANDOM: Onclick function
+function startRandomizing() {
+    let randomNumber = randomGenerator();
+    randomDiv.innerHTML = randomNumber;
+}
+
+// MAKE RANDOM: function to create random number
+function randomGenerator() {
+    let randomNumber = Math.floor(Math.random() * 10);
+
+    return randomNumber;
+}
+
+// SHOW INFO: onclick function - parameter given in onclick
+function showInfo(index) {
+    if (infoHasBeenAdded)
+    {
+        infoDiv.innerHTML += strings[index];
+    }
+    else
+    {
+        infoDiv.innerHTML = strings[index];
+        infoHasBeenAdded = true;
+    }
+}
