@@ -1,17 +1,27 @@
-// This function is called by buttons in the document
-function checkResponse(time)
-{
-  // Find the "response" h1 tag
-  let answerText = document.getElementById("response");
-  // If the pressed button says Afternoon
-  if(time === 'Afternoon')
+let textInput = document.getElementById("identifyVowel");
+let responseDiv = document.getElementById("response");
+
+function identifyVowel() {
+  let givenText = textInput.value;
+
+  if (isVowel(givenText))
   {
-    // Display proper text to h1
-    answerText.innerHTML = "That is correct!!!";
+    responseDiv.innerHTML = "This is a vowel!";
   }
   else
   {
-    // if not right, display guess again to h1
-    answerText.innerHTML = "Guess Again...";
+    responseDiv.innerHTML = "This is not a vowel";
+  }
+}
+
+function isVowel(givenText)
+{
+  givenText = givenText.toUpperCase();
+  for (let i = 0; i < givenText.length; i++)
+  {
+    if (givenText[i].includes("A"))
+    {
+      return true;
+    }
   }
 }
