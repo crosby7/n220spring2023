@@ -4,9 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .squares {
+            display: flex;
+        }
+        .squareDiv {
+            width: 200px;
+            height: 200px;
+            margin: 0 5px;
+            background-color: grey;
+        }
+        #colorMixerDisplay {
+            width: 700px;
+            height: 200px;
+            border: 3px solid black;
+            margin-bottom: 10px;
+            background-color: #000;
+        }
+        #colorMixerText {
+            width: 700px;
+            height: 50px;
+            border: 3px solid grey;
+            color: darkgrey;
+            font-size: 30px;
+            text-align: center;
+        }
+        .oneColor {
+            display: flex;
+            align-items: center;
+        }
+        h3 {
+            margin-right: 10px;
+        }
+        .colorMixerButton {
+            width: 50px;
+            height: 30px;
+            margin-right: 10px;
+            border: 2px solid grey;
+            background-color: grey;
+            color: white;
+        }
+        .flashCardsButton {
+            display: block;
+            margin-bottom: 10px;
+        }
+        #flashCards {
+            width: 300px;
+            height: 40px;
+            font-size: 30px;
+            background-color: grey;
+            text-align: center;
+        }
+    </style>
     <title>Events Exercises</title>
 </head>
 <body>
+    <!--Color Changer-->
+    <h1>Color Changer</h1>
+    <div class="squares">
+        <div data-color="#FF0000" class="squareDiv"></div>
+        <div data-color="#00FF00" class="squareDiv"></div>
+        <div data-color="#0000FF" class="squareDiv"></div>
+    </div>
+
+    <!--Color Mixer-->
+    <h1>Color Mixer</h1>
+    <div id="colorMixerDisplay"></div>
+    <div id="colorMixerText">Press a button to begin:</div>
+    <div class="oneColor">
+        <h3>Red:</h3>
+        <button data-color="red" data-strength="1" class="colorMixerButton">+1</button>
+        <button data-color="red" data-strength="5" class="colorMixerButton">+5</button>
+        <button data-color="red" data-strength="10" class="colorMixerButton">+10</button>
+    </div>
+    <div class="oneColor">
+        <h3>Green:</h3>
+        <button data-color="green" data-strength="1" class="colorMixerButton">+1</button>
+        <button data-color="green" data-strength="5" class="colorMixerButton">+5</button>
+        <button data-color="green" data-strength="10" class="colorMixerButton">+10</button>
+    </div>
+    <div class="oneColor">
+        <h3>Blue:</h3>
+        <button data-color="blue" data-strength="1" class="colorMixerButton">+1</button>
+        <button data-color="blue" data-strength="5" class="colorMixerButton">+5</button>
+        <button data-color="blue" data-strength="10" class="colorMixerButton">+10</button>
+    </div>
+    <!--Flash Cards-->
+    <h1>Flash Cards</h1>
+    <button class="flashCardsButton" onclick="flashCards(event)" data-answer="a button">What is this HTML element?</button>
+    <button class="flashCardsButton" onclick="flashCards(event)" data-answer="IUPUI (for now)">What school do we attend?</button>
+    <button class="flashCardsButton" onclick="flashCards(event)" data-answer="Events Exercises">What homework is this?</button>
+    <div id="flashCards"></div>
     <script src="js/events.js"></script>
 </body>
 </html>
