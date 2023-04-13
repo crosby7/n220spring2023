@@ -14,7 +14,7 @@ let homePage = `<div class="homePage">
 <button class="startGame" onclick="startGame()">Start Game</button>
 </div>`;
 let gamePage = `<h1 class="title">Click to flip a card:</h1>
-<table id="gameBoard"></table>`;
+<div id="gameBoard"></div>`;
 let winPage = `<h1>Congratulations! You Win!</h1>
 <h3>Play Again?</h3>
 <div class="winScreenButtons">
@@ -92,6 +92,11 @@ let hardImages = [
     "midsommar.jpg",
     "mountainCabin.jpg"
 ];
+
+let selectedImages;
+let gameBoard;
+let firstClicked;
+let secondClicked;
 
 
 // Function for changing pages
