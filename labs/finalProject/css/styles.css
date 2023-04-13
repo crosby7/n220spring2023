@@ -1,6 +1,11 @@
-.homeTitle {
+.injector {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
     font-size: 46px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     text-align: center;
 }
 
@@ -11,15 +16,33 @@ h3 {
 
 .homeButtons {
     width: 30%;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .homeButtons button {
-    width: 50px;
+    width: 60px;
     height: 30px;
     background-color: #f9dbbd;
-    color: #dfdfdf;
+    color: #000000;
+}
+
+#homeText {
+    width: 500px;
+    height: 30px;
+    margin: 30px auto 100px auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+.startGame {
+    position: relative;
+    bottom: 0;
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #e94f37;
 }
