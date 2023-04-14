@@ -65,38 +65,40 @@ function setGameBoard()
             newCard.style.width = 100 + "px";
             newCard.style.height = "100%";
             console.log(selectedImages[randomIndex]);
-            newCard.style.backgroundImage = `url(images/${selectedImages[randomIndex]})`;
-            selectedImages.splice(randomIndex, 1);
-            console.log(selectedImages);
+            newCard.dataset.name = selectedImages[randomIndex];
             newCard.style.backgroundPosition = "center";
             newCard.style.backgroundSize = "cover";
             newCard.style.backgroundRepeat = "no-repeat";
-            //newCard.style.display = "none";
+            newCard.style.backgroundColor = "#e94f37";
+            newCard.dataset.img = selectedImages[randomIndex];
+            selectedImages.splice(randomIndex, 1);
 
-            let cardBack = document.createElement("div");
-            cardBack.style.width = 100 + "px";
-            cardBack.style.height = "100%";
-            cardBack.style.backgroundColor = "#e94f37";
-            cardBack.addEventListener("click", function (e) {
+            newCard.addEventListener("click", function (e) {
                 if (firstClicked === null)
                 {
+                    console.log(e.currentTarget);
                     firstClicked = e.currentTarget;
-                    e.currentTarget.style.display = "none";
+                    //e.currentTarget.style.backgroundColor = null;
+                    e.currentTarget.backgroundImage = `url(images/${e.currentTarget.dataset.img})`;
+                    console.log(e.currentTarget.dataset.img);
 
                 }
                 else
                 {
                     secondClicked = e.currentTarget;
-                    e.currentTarget.style.display = "none";
+                    e.currentTarget.style.backgroundColor = null;
+                    e.currentTarget.backgroundImage = `url(images/${e.currentTarget.dataset.img})`;
 
-                    setTimeout(checkMatches, 2000);
+                    //setTimeout(checkMatches, 2000);
                 }
             })
 
-            newRow.appendChild(cardBack);
             newRow.appendChild(newCard);
         }
     }
 }
 
 
+function checkMatches() {
+    console.log("checking matches");
+}
