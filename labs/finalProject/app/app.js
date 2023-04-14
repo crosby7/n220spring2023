@@ -84,11 +84,10 @@ function flipCards(event) {
     if (firstClicked === null)
     {
         firstClicked = event.currentTarget;
-        console.log("firstcloicked: " + firstClicked);
-        console.log(event.currentTarget);
         firstClicked = event.currentTarget;
         event.currentTarget.style.backgroundColor = null;
         event.currentTarget.style.backgroundImage = `url(images/${event.currentTarget.dataset.imgTag})`;
+        event.currentTarget.removeEventListener("click", flipCards);
     }
     else
     {
@@ -99,24 +98,27 @@ function flipCards(event) {
 
     if (firstClicked != null && secondClicked != null)
     {
-        checkMatches();
+        document.querySelectorAll(".clickable").forEach((item) => {
+            item.removeEventListener("click", flipCards);
+        });
+        setTimeout(checkMatches, 2000);
     }
 }
 
 function checkMatches() {
-    document.querySelectorAll(".clickable").forEach((item) => {
-        item.removeEventListener("click", flipCards);
-    });
+
     console.log("checking matches");
     
     if (firstClicked.dataset.imgTag === secondClicked.dataset.imgTag)
     {
-        firstClicked.style.display = "none";
-        secondClicked.style.display = "none";
+        console.log("A match!!!");
+        firstClicked.style.backgroundImage = null;
+        secondClicked.style.backgroundImage = null;
+        firstClicked.style.backgroundColor = "#3377FF";
+        secondClicked.style.backgroundColor = "#3377FF";
         firstClicked = null;
         secondClicked = null;
         score += 1;
-        console.log("Score: " + score);
     }
     else
     {
