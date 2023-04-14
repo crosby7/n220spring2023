@@ -49,7 +49,7 @@ function setGameBoard()
     {
         let newRow = document.createElement("div");
         newRow.style.width = 120 * gameDifficulty + "px";
-        newRow.style.height = 200 * (1 + 1 / gameDifficulty) + "px";
+        newRow.style.height = 100 * (1 + 1 / gameDifficulty) + "px";
         newRow.style.display = "flex";
         newRow.style.alignItems = "center";
         newRow.style.justifyContent = "space-between";
@@ -62,43 +62,80 @@ function setGameBoard()
             let randomIndex = Math.floor(Math.random() * selectedImages.length);
             console.log(randomIndex);
             let newCard = document.createElement("div");
+            newCard.className = "clickable";
             newCard.style.width = 100 + "px";
             newCard.style.height = "100%";
-            console.log(selectedImages[randomIndex]);
-            newCard.dataset.name = selectedImages[randomIndex];
+            //console.log(selectedImages[randomIndex]);
+            newCard.dataset.imgTag = selectedImages[randomIndex];
             newCard.style.backgroundPosition = "center";
             newCard.style.backgroundSize = "cover";
             newCard.style.backgroundRepeat = "no-repeat";
             newCard.style.backgroundColor = "#e94f37";
-            newCard.dataset.img = selectedImages[randomIndex];
             selectedImages.splice(randomIndex, 1);
 
-            newCard.addEventListener("click", function (e) {
-                if (firstClicked === null)
-                {
-                    console.log(e.currentTarget);
-                    firstClicked = e.currentTarget;
-                    //e.currentTarget.style.backgroundColor = null;
-                    e.currentTarget.backgroundImage = `url(images/${e.currentTarget.dataset.img})`;
-                    console.log(e.currentTarget.dataset.img);
-
-                }
-                else
-                {
-                    secondClicked = e.currentTarget;
-                    e.currentTarget.style.backgroundColor = null;
-                    e.currentTarget.backgroundImage = `url(images/${e.currentTarget.dataset.img})`;
-
-                    //setTimeout(checkMatches, 2000);
-                }
-            })
+            newCard.addEventListener("click", flipCards);
 
             newRow.appendChild(newCard);
         }
     }
 }
 
+function flipCards(event) {
+    if (firstClicked === null)
+    {
+        firstClicked = event.currentTarget;
+        console.log("firstcloicked: " + firstClicked);
+        console.log(event.currentTarget);
+        firstClicked = event.currentTarget;
+        event.currentTarget.style.backgroundColor = null;
+        event.currentTarget.style.backgroundImage = `url(images/${event.currentTarget.dataset.imgTag})`;
+    }
+    else
+    {
+        secondClicked = event.currentTarget;
+        event.currentTarget.style.backgroundColor = null;
+        event.currentTarget.style.backgroundImage = `url(images/${event.currentTarget.dataset.imgTag})`;
+    }
+
+    if (firstClicked != null && secondClicked != null)
+    {
+        checkMatches();
+    }
+}
 
 function checkMatches() {
+    document.querySelectorAll(".clickable").forEach((item) => {
+        item.removeEventListener("click", flipCards);
+    });
     console.log("checking matches");
+    
+    if (firstClicked.dataset.imgTag === secondClicked.dataset.imgTag)
+    {
+        firstClicked.style.display = "none";
+        secondClicked.style.display = "none";
+        firstClicked = null;
+        secondClicked = null;
+        score += 1;
+        console.log("Score: " + score);
+    }
+    else
+    {
+        console.log("not a match");
+        firstClicked.style.backgroundImage = null;
+        firstClicked.style.backgroundColor = "#e94f37";
+        secondClicked.style.backgroundImage = null;
+        secondClicked.style.backgroundColor = "#e94f37";
+        firstClicked = null;
+        secondClicked = null;
+    }
+
+    if (score === Math.pow(gameDifficulty, 2) / 2)
+    {
+        console.log("you win!!");
+        window.location.hash = "#winScreen";
+    }
+
+    document.querySelectorAll(".clickable").forEach((item) => {
+        item.addEventListener("click", flipCards);
+    })
 }

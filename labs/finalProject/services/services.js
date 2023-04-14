@@ -95,8 +95,8 @@ let hardImages = [
 
 let selectedImages;
 let gameBoard;
-let firstClicked;
-let secondClicked;
+let firstClicked = null;
+let secondClicked = null;
 
 
 // Function for changing pages
