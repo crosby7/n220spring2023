@@ -18,8 +18,8 @@ let gamePage = `<h1 class="title">Click to flip a card:</h1>
 let winPage = `<h1>Congratulations! You Win!</h1>
 <h3>Play Again?</h3>
 <div class="winScreenButtons">
-  <button>Play Again</button>
-  <button>Back to Menu</button>
+  <button onclick="replayGame()">Play Again</button>
+  <button onclick="backToMenu()">Back to Menu</button>
 </div>`;
 
 // Game-relevant global variables
