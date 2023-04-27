@@ -2,25 +2,25 @@
 let injectorDiv = document.getElementById("injector");
 
 // Individual HTML pages to be loaded later
-let homePage = `<div class="homePage">
+let homePage = `<div class="page">
 <h1 class="title">Memory (Concentration)</h1>
 <h3>Select a difficulty:</h3>
-<div class="homeButtons">
-  <button onclick="setDifficulty(2)">Easy</button>
-  <button onclick="setDifficulty(4)">Normal</button>
-  <button onclick="setDifficulty(6)">Hard</button>
+<div class="alignBottom"><div class="homeButtons">
+<button onclick="setDifficulty(2)">Easy</button>
+<button onclick="setDifficulty(4)">Normal</button>
+<button onclick="setDifficulty(6)">Hard</button>
 </div>
 <div id="homeText"></div>
-<button class="startGame" onclick="startGame()">Start Game</button>
+<button class="startGame" onclick="startGame()">Start Game</button></div>
 </div>`;
-let gamePage = `<h1 class="title">Click to flip a card:</h1>
+let gamePage = `<div class="page"><h1 class="title">Click to flip a card:</h1>
 <div id="gameBoard"></div>`;
-let winPage = `<h1>Congratulations! You Win!</h1>
+let winPage = `<div class="page"><h1 class="title">Congratulations! You Win!</h1>
 <h3>Play Again?</h3>
 <div class="winScreenButtons">
   <button onclick="playAgain()">Play Again</button>
   <button onclick="quitGame()">Back to Menu</button>
-</div>`;
+</div></div>`;
 
 // Game-relevant global variables
 let gameDifficulty = null;

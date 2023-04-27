@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .injector {
     width: 100%;
     height: 100%;
@@ -7,15 +12,24 @@
     font-size: 46px;
     margin: 0 auto 20px auto;
     text-align: center;
+    padding-top: 20px;
 }
 
 h3 {
     margin: 0 auto;
     text-align: center;
+    font-size: 32px;
+}
+
+.alignBottom {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 100px;
 }
 
 .homeButtons {
-    width: 30%;
+    width: 50%;
     margin: 20px auto;
     display: flex;
     align-items: center;
@@ -23,10 +37,12 @@ h3 {
 }
 
 .homeButtons button {
-    width: 60px;
-    height: 30px;
-    background-color: #f9dbbd;
-    color: #000000;
+    width: 220px;
+    height: 60px;
+    font-size: 26px;
+    border-radius: 35px;
+    background-color: #3377FF;
+    color: #DFDFDF;
 }
 
 #homeText {
@@ -41,8 +57,45 @@ h3 {
     position: relative;
     bottom: 0;
     display: block;
-    width: 100px;
-    height: 40px;
+    width: 300px;
+    height: 80px;
+    font-size: 36px;
     margin: 0 auto;
+    border-radius: 35px;
     background-color: #e94f37;
+}
+
+
+.page {
+    width: 100%;
+    height: 100vh;
+    background-color: #F9DBBD;
+    position: relative;
+}
+
+
+.winScreenButtons {
+    width: 100%;
+    height: 700px;
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.winScreenButtons button {
+    width: 300px;
+    height: 100px;
+    font-size: 32px;
+    border-radius: 35px;
+    background-color: #3377FF;
+    color: #DFDFDF;
+}
+
+#gameBoard {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    margin: 0 auto;
 }

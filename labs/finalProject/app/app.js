@@ -72,8 +72,8 @@ function setGameBoard()
     for (i = 0; i < gameDifficulty; i++)
     {
         let newRow = document.createElement("div");
-        newRow.style.width = 120 * gameDifficulty + "px";
-        newRow.style.height = 100 * (1 + 1 / gameDifficulty) + "px";
+        newRow.style.width = 160 * gameDifficulty + "px";
+        newRow.style.height = 140 * (1 + 1 / gameDifficulty) + "px";
         newRow.style.display = "flex";
         newRow.style.alignItems = "center";
         newRow.style.justifyContent = "space-between";
@@ -87,7 +87,7 @@ function setGameBoard()
             console.log(randomIndex);
             let newCard = document.createElement("div");
             newCard.className = "clickable";
-            newCard.style.width = 100 + "px";
+            newCard.style.width = 140 + "px";
             newCard.style.height = "100%";
             //console.log(selectedImages[randomIndex]);
             newCard.dataset.imgTag = selectedImages[randomIndex];
