@@ -18,8 +18,8 @@ let gamePage = `<h1 class="title">Click to flip a card:</h1>
 let winPage = `<h1>Congratulations! You Win!</h1>
 <h3>Play Again?</h3>
 <div class="winScreenButtons">
-  <button onclick="replayGame()">Play Again</button>
-  <button onclick="backToMenu()">Back to Menu</button>
+  <button onclick="playAgain()">Play Again</button>
+  <button onclick="quitGame()">Back to Menu</button>
 </div>`;
 
 // Game-relevant global variables
@@ -30,13 +30,13 @@ let score = 0;
 let homeTextDiv;
 
 // GAME VARS
-let easyImages = [
+const easyImages = [
     "aurora.jpg",
     "beach.jpg",
     "aurora.jpg",
     "beach.jpg"
 ];
-let normalImages = [
+const normalImages = [
     "aurora.jpg",
     "beach.jpg",
     "caves.jpg",
@@ -54,7 +54,7 @@ let normalImages = [
     "coastalResort.jpg",
     "creek.jpg"
 ];
-let hardImages = [
+const hardImages = [
     "aurora.jpg",
     "beach.jpg",
     "caves.jpg",

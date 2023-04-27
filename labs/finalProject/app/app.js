@@ -7,27 +7,51 @@ window.addEventListener("hashchange", changePage);
 // Onclick in home page to set difficulty of game
 function setDifficulty(difficulty)
 {
-    homeTextDiv = document.getElementById("homeText");
+    if (window.location.hash === "#home")
+    {
+        homeTextDiv = document.getElementById("homeText");
+    }
     gameDifficulty = difficulty;
 
     if (difficulty === 2)
     {
-        homeTextDiv.innerHTML = "You selected: Easy";
-        selectedImages = easyImages;
-        console.log(selectedImages);
+        if (window.location.hash === "#home")
+        {
+            homeTextDiv.innerHTML = "You selected: Easy";
+        }
+        selectedImages = [...easyImages];
+        // console.log(selectedImages);
+        // console.log("Easy: " + easyImages);
     }
     else if (difficulty === 4)
     {
-        homeTextDiv.innerHTML = "You selected: Normal";
-        selectedImages = normalImages;
-        console.log(selectedImages);
+        if (window.location.hash === "#home")
+        {
+            homeTextDiv.innerHTML = "You selected: Normal";
+        }
+        selectedImages = [...normalImages];
+        // console.log(selectedImages);
     }
     else
     {
-        homeTextDiv.innerHTML = "You selected: Hard";
-        selectedImages = hardImages;
-        console.log(selectedImages);
+        if (window.location.hash === "#home")
+        {
+            homeTextDiv.innerHTML = "You selected: Hard";
+        }
+        selectedImages = [...hardImages];
+        // console.log(selectedImages);
     }
+
+
+    preloadImages(selectedImages);
+}
+
+function preloadImages(selectedImages)
+{
+    selectedImages.forEach( (item) => {
+        let image = new Image();
+        image.src = `images/${item}`;
+    })
 }
 
 function startGame()
@@ -71,6 +95,7 @@ function setGameBoard()
             newCard.style.backgroundSize = "cover";
             newCard.style.backgroundRepeat = "no-repeat";
             newCard.style.backgroundColor = "#e94f37";
+            //console.log("easy before splice: " + easyImages);
             selectedImages.splice(randomIndex, 1);
 
             newCard.addEventListener("click", flipCards);
@@ -78,6 +103,7 @@ function setGameBoard()
             newRow.appendChild(newCard);
         }
     }
+    console.log("Still easy: " + easyImages);
 }
 
 function flipCards(event) {
@@ -107,11 +133,11 @@ function flipCards(event) {
 
 function checkMatches() {
 
-    console.log("checking matches");
+    //console.log("checking matches");
     
     if (firstClicked.dataset.imgTag === secondClicked.dataset.imgTag)
     {
-        console.log("A match!!!");
+        //console.log("A match!!!");
         firstClicked.style.backgroundImage = null;
         secondClicked.style.backgroundImage = null;
         firstClicked.style.backgroundColor = "#3377FF";
@@ -122,7 +148,7 @@ function checkMatches() {
     }
     else
     {
-        console.log("not a match");
+        //console.log("not a match");
         firstClicked.style.backgroundImage = null;
         firstClicked.style.backgroundColor = "#e94f37";
         secondClicked.style.backgroundImage = null;
@@ -133,11 +159,27 @@ function checkMatches() {
 
     if (score === Math.pow(gameDifficulty, 2) / 2)
     {
-        console.log("you win!!");
+        //console.log("you win!!");
         window.location.hash = "#winScreen";
     }
 
     document.querySelectorAll(".clickable").forEach((item) => {
         item.addEventListener("click", flipCards);
     })
+}
+
+function playAgain() {
+    score = 0;
+    //selectedImages = null;
+    //console.log("This is gameDiff: " + gameDifficulty);
+    setDifficulty(gameDifficulty);
+    //console.log("playing again with: " + selectedImages);
+    //console.log("These are easy: " + easyImages);
+    setTimeout(startGame, 500);
+}
+
+function quitGame() {
+    gameDifficulty = null;
+    score = 0;
+    window.location.hash = "#home";
 }
