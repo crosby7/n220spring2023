@@ -1,0 +1,42 @@
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: green;
+}
+
+.topRow {
+    margin-bottom: 30px;
+    width: 1000px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pile {
+    width: 150px;
+    height: 250px;
+}
+
+.foundation {
+    border: 2px solid pink;
+}
+
+.waste {
+    border: 2px solid grey;
+}
+
+.stock {
+    border: 2px solid salmon;
+}
+
+.tableau {
+    border: 2px solid black;
+}
